@@ -21,12 +21,17 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval',
+  devtool: '#source-map',
   plugins: [
     new CleanWebpackPlugin('./example/dist'),
     new HtmlWebpackPlugin({
       inject: true,
       template: './example/index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
