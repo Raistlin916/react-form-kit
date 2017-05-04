@@ -1,5 +1,4 @@
 var path = require('path')
-var webpack = require('webpack')
 
 if (process.env.NODE_ENV === 'example') {
   module.exports = require('./webpack.example.js')
