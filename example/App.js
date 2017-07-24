@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, FormItem } from '../src'
+import { Form } from '../src'
 
 export default class App extends Component {
   constructor(props) {
@@ -16,17 +16,16 @@ export default class App extends Component {
     })
   }
   render() {
+    const { username, age } = this.state
     return (
       <Form state={this.state} onChange={this.onChange}>
         {bindField =>
           <div>
-            <FormItem label="username:">
-              {bindField(<input type="text" name="username" />)}
-            </FormItem>
-            <FormItem label="age:">
-              {bindField(<input type="number" name="age" />)}
-            </FormItem>
-            <button type="submit">submit</button>
+            {bindField(<input type="text" name="username" placeholder="username" />)}
+            {bindField(<input type="number" name="age" placeholder="age" />)}
+            <hr />
+            <p>username: { username }</p>
+            <p>age: { age }</p>
           </div>
         }
       </Form>
